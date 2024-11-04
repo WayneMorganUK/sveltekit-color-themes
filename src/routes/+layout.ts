@@ -3,14 +3,10 @@ import { theme } from '$lib/runes/theme.svelte.js';
 
 export const load = async ({ data }) => {
     if (browser) {
-        const dataTheme = document.documentElement.getAttribute('data-theme') || ``
-        if (dataTheme === 'light' || dataTheme === 'dark' || dataTheme === 'blood') {
-            theme.state = { mode: dataTheme };
-            localStorage.setItem('theme', JSON.stringify({ mode: dataTheme }))
-        }
-        return {
-            theme: dataTheme
-        }
+        if (data.theme) theme.state.mode = data.theme
+        console.log("+servere.ts", theme.state.mode)
+
+        theme.update()
     }
     return {
         theme: data.theme,

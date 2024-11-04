@@ -9,6 +9,7 @@
 	}
 
 	let { children }: Props = $props();
+	$inspect(theme.state);
 
 	theme.state.mode = $page.data.theme;
 
@@ -16,10 +17,10 @@
 		if (!('theme' in localStorage)) {
 			if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
 				theme.state = { mode: 'dark' };
-				localStorage.setItem('theme', JSON.stringify({ mode: 'dark' }));
+				theme.update();
 			} else {
 				theme.state = { mode: 'light' };
-				localStorage.setItem('theme', JSON.stringify({ mode: 'light' }));
+				theme.update();
 			}
 		}
 	});
