@@ -3,6 +3,7 @@
 	import Navbar from '$lib/Header/Navbar.svelte';
 	import { page } from '$app/stores';
 	import { theme } from '$lib/runes/theme.svelte';
+	import { onMount } from 'svelte';
 
 	interface Props {
 		children?: import('svelte').Snippet;
@@ -11,15 +12,15 @@
 	let { children }: Props = $props();
 	$inspect(theme.state);
 
-	theme.state.mode = $page.data.theme;
+	theme.state = $page.data.theme;
 
-	$effect(() => {
+	onMount(() => {
 		if (!('theme' in localStorage)) {
 			if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-				theme.state = { mode: 'dark' };
+				theme.state = 'dark';
 				theme.update();
 			} else {
-				theme.state = { mode: 'light' };
+				theme.state = 'light';
 				theme.update();
 			}
 		}
@@ -28,21 +29,19 @@
 
 <svelte:head>
 	<script lang="ts">
-		if (!('theme' in localStorage)) {
+		if (!localStorage.getItem('theme')) {
 			if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
 				document.documentElement.setAttribute('data-theme', 'dark');
-				localStorage.setItem('theme', JSON.stringify({ mode: 'dark' }));
+				localStorage.setItem('theme', 'dark');
 				document.cookie =
 					'theme=dark;path=/;SameSite=strict;expires=Wed, 29 Dec 9999 23:59:59 GMT;';
 			} else {
+				localStorage.setItem('theme', 'light');
 				document.cookie =
 					'theme=light;path=/;SameSite=strict;expires=Thu, 30 Dec 9999 23:59:59 GMT;';
 			}
 		} else {
-			if (localStorage.getItem('theme')) {
-				let currentMode = JSON.parse(localStorage.getItem('theme'));
-				document.documentElement.setAttribute('data-theme', currentMode.mode);
-			}
+			document.documentElement.setAttribute('data-theme', localStorage.getItem('theme'));
 		}
 	</script>
 	<title>Sveltekit &amp; Tailwind Dark Mode</title>

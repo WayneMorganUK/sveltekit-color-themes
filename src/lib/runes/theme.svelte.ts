@@ -1,20 +1,14 @@
-function themeRune(key: string, startValue: { mode: string }) {
-    let state = $state(startValue)
+function localStorageTheme(mode: ThemeType) {
+    let state = $state(mode)
     return {
         get state() { return state },
         set state(value) { state = value },
         update: () => {
-            console.log("local stprege rune", key)
-            const keyValue = localStorage.getItem(key) as string;
-            if (keyValue) {
-                localStorage.setItem(key, JSON.stringify(state));
-            }
-
-            document.cookie = `theme=${state.mode};path=/;SameSite=strict;maxAge: ${60 * 60 * 24 * 365}`;
-            document.documentElement.setAttribute('data-theme', state.mode)
-
-
+            localStorage.setItem('theme', state);
+            document.cookie = `theme=${state};path=/;SameSite=strict;max-age= ${60 * 60 * 24 * 365}`;
+            document.documentElement.setAttribute('data-theme', state)
         }
     }
 }
-export const theme = themeRune('theme', { mode: 'light' })
+
+export const theme = localStorageTheme('blood')

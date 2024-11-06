@@ -4,16 +4,15 @@ export const handle: Handle = async ({ event, resolve }) => {
     let theme = event.cookies.get('theme');
     if (!theme) {
         theme = 'light'
-        const futureDate = new Date()
-        futureDate.setFullYear(futureDate.getFullYear() + 1)
         event.cookies.set('theme', 'light', {
-            sameSite: 'strict',
+            sameSite: 'none',
+            secure: true,
             path: '/',
-            expires: futureDate,
+            maxAge: 60 * 60 * 24 * 365,
             httpOnly: false
         });
     }
-    event.locals.theme = { mode: theme }
-    const response = await resolve(event)
-    return response
+    event.locals.theme = theme
+    return await resolve(event)
+
 }

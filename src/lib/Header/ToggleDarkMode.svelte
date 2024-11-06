@@ -1,18 +1,19 @@
 <script lang="ts">
 	import { theme } from '$lib/runes/theme.svelte';
-	import { toggleThemeRune } from '$lib/Header/toggle.svelte';
 	import { icons } from '$lib/Icons/Icons';
 
-	let current_theme: ThemeType = $derived(theme.state.mode);
-
 	function changeTheme() {
-		// toggleTheme(theme, $theme);
-		toggleThemeRune();
-		// current_theme = theme.state.mode;
-		// console.log('value is ', value);
+		if (theme.state == 'light') {
+			theme.state = 'dark';
+		} else if (theme.state == 'dark') {
+			theme.state = 'blood';
+		} else {
+			theme.state = 'light';
+		}
+		theme.update();
 	}
 
-	const SvelteComponent = $derived(icons[current_theme]);
+	const SvelteComponent = $derived(icons[theme.state]);
 </script>
 
 <div class="bg-skin-secondary mr-2 flex h-8 w-8 items-center justify-center rounded-full">
