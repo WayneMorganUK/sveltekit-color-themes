@@ -1,9 +1,15 @@
 <script lang="ts">
 	import { theme } from '$lib/runes/theme.svelte';
-	import { icons } from '$lib/Icons/Icons';
+	// import { icons } from '$lib/Icons/Icons';
 	import Moon from '$lib/Icons/Moon.svelte';
 	import BloodDrop from '$lib/Icons/BloodDrop.svelte';
 	import Sun from '$lib/Icons/Sun.svelte';
+
+	const icons = {
+		light: Sun,
+		dark: Moon,
+		blood: BloodDrop
+	};
 
 	function changeTheme() {
 		if (theme.state == 'light') {
