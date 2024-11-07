@@ -8,6 +8,7 @@ export const load = async ({ data }) => {
             theme.state = dataTheme
             localStorage.setItem('theme', dataTheme)
         }
+        theme.update()
         return {
             theme: dataTheme
         }
