@@ -4,6 +4,9 @@ export default {
 	content: ['./src/**/*.{html,js,svelte,ts}'],
 	theme: {
 		extend: {
+			fontFamily: {
+				poppins: ['Poppins']
+			},
 			textColor: {
 				skin: {
 					base: 'var(--color-text-base)',
