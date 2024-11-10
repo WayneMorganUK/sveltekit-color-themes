@@ -5,7 +5,7 @@ export const handle: Handle = async ({ event, resolve }) => {
     if (!theme) {
         theme = 'light'
         event.cookies.set('theme', 'light', {
-            sameSite: 'none',
+            sameSite: 'lax',
             secure: true,
             path: '/',
             maxAge: 60 * 60 * 24 * 365,

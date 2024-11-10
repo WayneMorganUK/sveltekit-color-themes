@@ -33,12 +33,10 @@
 			if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
 				document.documentElement.setAttribute('data-theme', 'dark');
 				localStorage.setItem('theme', 'dark');
-				document.cookie =
-					'theme=dark;path=/;SameSite=strict;expires=Wed, 29 Dec 9999 23:59:59 GMT;';
+				document.cookie = 'theme=dark;path=/;SameSite=lax;expires=Wed, 29 Dec 9999 23:59:59 GMT;';
 			} else {
 				localStorage.setItem('theme', 'light');
-				document.cookie =
-					'theme=light;path=/;SameSite=strict;expires=Thu, 30 Dec 9999 23:59:59 GMT;';
+				document.cookie = 'theme=light;path=/;SameSite=lax;expires=Thu, 30 Dec 9999 23:59:59 GMT;';
 			}
 		} else {
 			document.documentElement.setAttribute('data-theme', localStorage.getItem('theme'));
