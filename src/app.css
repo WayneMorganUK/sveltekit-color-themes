@@ -98,8 +98,8 @@
 		font-family: 'Poppins';
 		font-style: normal;
 		font-weight: 300;
-		src: url('/fonts/poppins/Poppins-Regular.ttf');
-		src: url('/fonts/poppins/Poppins-Regular.ttf') format('truetype');
+		src: url('$lib/fonts/poppins/Poppins-Regular.ttf');
+		src: url('$lib/fonts/poppins/Poppins-Regular.ttf') format('truetype');
 		font-display: swap;
 	}
 

@@ -1,6 +1,5 @@
 <script lang="ts">
-	import { theme } from '$lib/runes/theme.svelte';
-	// import { icons } from '$lib/Icons/Icons';
+	import { theme } from '$lib/runes/localStorage.svelte';
 	import Moon from '$lib/Icons/Moon.svelte';
 	import BloodDrop from '$lib/Icons/BloodDrop.svelte';
 	import Sun from '$lib/Icons/Sun.svelte';
@@ -12,17 +11,16 @@
 	};
 
 	function changeTheme() {
-		if (theme.state == 'light') {
-			theme.state = 'dark';
-		} else if (theme.state == 'dark') {
-			theme.state = 'blood';
+		if (theme.value == 'light') {
+			theme.value = 'dark';
+		} else if (theme.value == 'dark') {
+			theme.value = 'blood';
 		} else {
-			theme.state = 'light';
+			theme.value = 'light';
 		}
-		theme.update();
 	}
 
-	const SvelteComponent = $derived(icons[theme.state]);
+	let SvelteComponent = $derived(icons[theme.value as keyof typeof icons]);
 </script>
 
 <div class="bg-skin-secondary mr-2 flex h-8 w-8 items-center justify-center rounded-full">
@@ -31,13 +29,13 @@
 		aria-label="Toggle Theme"
 		onclick={changeTheme}
 	>
-		{#if theme.state == 'light'}
+		{#if theme.value == 'light'}
 			<Sun />
 		{/if}
-		{#if theme.state == 'dark'}
+		{#if theme.value == 'dark'}
 			<Moon />
 		{/if}
-		{#if theme.state == 'blood'}
+		{#if theme.value == 'blood'}
 			<BloodDrop />
 		{/if}
 	</button>
