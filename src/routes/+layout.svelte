@@ -1,20 +1,16 @@
 <script lang="ts">
 	import '../app.css';
 	import Navbar from '$lib/Header/Navbar.svelte';
-	import { page } from '$app/state';
 	import { theme } from '$lib/runes/localStorage.svelte';
 	import { onMount } from 'svelte';
-	$inspect(theme.value);
-	console.log('page', page.data);
 
+	$inspect(theme.value);
 	interface Props {
 		children?: import('svelte').Snippet;
 	}
 
 	let { children }: Props = $props();
 	$inspect(theme.value);
-
-	// theme.value = page.data.theme;
 
 	onMount(() => {
 		if (!('theme' in localStorage)) {

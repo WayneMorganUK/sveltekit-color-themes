@@ -10,15 +10,11 @@ export const load = async ({ data }) => {
             theme.value = dataTheme
         }
         return {
-            theme: dataTheme,
-            version: data.version,
-            name: data.name
+            theme: dataTheme
         }
     }
     return {
-        theme: data.theme,
-        version: data.version,
-        name: data.name
+        theme: data.theme
     };
 }
 

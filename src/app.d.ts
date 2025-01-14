@@ -11,6 +11,7 @@ declare global {
 		// interface Platform {}
 	}
 	type ThemeType = 'dark' | 'light' | 'blood'
+	declare const __VERSION__: string
 }
 
 export { };

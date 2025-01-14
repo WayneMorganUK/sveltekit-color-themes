@@ -9,6 +9,7 @@
 			<a class="hover:text-skin-selected ml-8" href="/about">About</a>
 			<a class="hover:text-skin-selected ml-8" href="/projects">Projects</a>
 			<a class="hover:text-skin-selected ml-8" href="/contact">Contact</a>
+			<p class="ml-4">Version {__VERSION__}</p>
 		</div>
 		<div class="flex items-center">
 			<ToggleDarkMode />
