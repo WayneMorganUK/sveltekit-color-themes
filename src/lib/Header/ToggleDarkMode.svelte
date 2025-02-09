@@ -23,7 +23,7 @@
 	let SvelteComponent = $derived(icons[theme.value as keyof typeof icons]);
 </script>
 
-<div class="bg-skin-secondary mr-2 flex h-8 w-8 items-center justify-center rounded-full">
+<div class="bg-col-secondary mr-2 flex h-8 w-8 items-center justify-center rounded-full">
 	<button
 		class="fill-base stroke-base hover:stroke-hover hover:fill-hover h-5 w-5 rounded-full"
 		aria-label="Toggle Theme"
@@ -40,7 +40,7 @@
 		{/if}
 	</button>
 </div>
-<div class="bg-skin-secondary mr-2 flex h-8 w-8 items-center justify-center rounded-full">
+<div class="bg-col-secondary mr-2 flex h-8 w-8 items-center justify-center rounded-full">
 	<button
 		class="fill-base stroke-base hover:stroke-hover hover:fill-hover h-5 w-5 rounded-full"
 		aria-label="Toggle Theme"

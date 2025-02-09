@@ -1,144 +1,183 @@
-/* Write your global styles here, in PostCSS syntax */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
 
-@layer base {
-	html {
-		font-family: 'Poppins';
-	}
-	html[data-theme='light'] {
-		--color-text-base: #379696;
-		--color-text-header: #0f0;
-		--color-text-secondary: #000;
-		--color-text-inverted: #4f4949;
-		--color-text-muted-inverted: #521111;
-		--color-text-selected: #ff5f1f;
-		--color-fill: #ccff15;
-		--color-stroke: #ccff15;
-		--color-fill-hover: #ff5f1f;
-		--color-stroke-hover: #ff5f1f;
-		--color-text-neon: #ff0;
-		--color-bg: rgb(197, 197, 197);
-		--color-base: rgb(214, 214, 214);
-		--color-header: #00f;
-		--color-primary: #e3e3f1;
-		--color-secondary: #260da0;
-		--color-tertiary: #80a9c8;
-		--color-border: #bcbcbc;
-		--color-shadow-bg: #e7e7f5;
-		--color-shadow-1: rgba(255, 255, 255, 0.6);
-		--color-shadow-2: rgba(0, 0, 0, 0.4);
-		--color-shadow-3: rgba(255, 255, 255, 0.8);
-		--color-shadow-4: rgba(0, 0, 0, 0.4);
-		--linear-from: rgb(141, 151, 157);
-		--linear-to: rgb(214, 214, 214, 0.47);
-		--box-shadow: #bbb;
-	}
+html[data-theme='light'] {
+	--color-text-base: #379696;
+	--color-text-header: #0f0;
+	--color-text-secondary: #000;
+	--color-text-inverted: #4f4949;
+	--color-text-muted-inverted: #521111;
+	--color-text-selected: #ff5f1f;
+	--color-fill: #ccff15;
+	--color-stroke: #ccff15;
+	--color-fill-hover: #ff5f1f;
+	--color-stroke-hover: #ff5f1f;
+	--color-text-neon: #ff0;
+	--color-bg: rgb(197, 197, 197);
+	--color-base: rgb(214, 214, 214);
+	--color-header: #00f;
+	--color-primary: #e3e3f1;
+	--color-secondary: #260da0;
+	--color-tertiary: #80a9c8;
+	--color-border: #bcbcbc;
+	--color-shadow-bg: #e7e7f5;
+	--color-shadow-1: rgba(255, 255, 255, 0.6);
+	--color-shadow-2: rgba(0, 0, 0, 0.4);
+	--color-shadow-3: rgba(255, 255, 255, 0.8);
+	--color-shadow-4: rgba(0, 0, 0, 0.4);
+	--linear-from: rgb(141, 151, 157);
+	--linear-to: rgb(214, 214, 214, 0.47);
+	--box-shadow: #bbb;
+}
 
-	html[data-theme='dark'] {
-		--color-text-base: #08e3bd;
-		--color-text-secondary: #fff;
-		--color-text-muted: #ffffff;
-		--color-text-inverted: #ececec;
-		--color-text-muted-inverted: #616161;
-		--color-text-selected: #ccff15;
-		--color-text-neon: #ff0;
-		--color-fill: #abab1a;
-		--color-stroke: #abab1a;
-		--color-fill-hover: #ccff15;
-		--color-stroke-hover: #ccff15;
-		--color-bg: #282828;
-		--color-base: #3f3f3f;
-		--color-header: #00f;
-		--color-primary: #515151;
-		--color-secondary: #3a3a3a;
-		--color-tertiary: #1c1c1c;
-		--color-border: #030303;
-		--color-shadow-bg: #515151;
-		--color-shadow-1: rgba(255, 255, 255, 0.1);
-		--color-shadow-2: rgba(0, 0, 0, 0.7);
-		--color-shadow-3: rgba(83, 76, 75, 0.67);
-		--color-shadow-4: rgba(0, 0, 0, 0.7);
-		--linear-from: rgb(29, 23, 23);
-		--linear-to: rgba(139, 145, 149, 0.84);
-		--box-shadow: rgb(21, 5, 5);
-	}
+html[data-theme='dark'] {
+	--color-text-base: #08e3bd;
+	--color-text-secondary: #fff;
+	--color-text-muted: #ffffff;
+	--color-text-inverted: #ececec;
+	--color-text-muted-inverted: #616161;
+	--color-text-selected: #ccff15;
+	--color-text-neon: #ff0;
+	--color-fill: #abab1a;
+	--color-stroke: #abab1a;
+	--color-fill-hover: #ccff15;
+	--color-stroke-hover: #ccff15;
+	--color-bg: #282828;
+	--color-base: #3f3f3f;
+	--color-header: #00f;
+	--color-primary: #515151;
+	--color-secondary: #3a3a3a;
+	--color-tertiary: #1c1c1c;
+	--color-border: #030303;
+	--color-shadow-bg: #515151;
+	--color-shadow-1: rgba(255, 255, 255, 0.1);
+	--color-shadow-2: rgba(0, 0, 0, 0.7);
+	--color-shadow-3: rgba(83, 76, 75, 0.67);
+	--color-shadow-4: rgba(0, 0, 0, 0.7);
+	--linear-from: rgb(29, 23, 23);
+	--linear-to: rgba(139, 145, 149, 0.84);
+	--box-shadow: rgb(21, 5, 5);
+}
 
-	html[data-theme='blood'] {
-		--color-text-base: #d6d3e2;
-		--color-text-secondary: #fff;
-		--color-text-muted: #ffffff;
-		--color-text-inverted: #ececec;
-		--color-text-muted-inverted: #616161;
-		--color-text-selected: #49fb35;
-		--color-text-neon: #e0d788;
-		--color-fill: #f0211a;
-		--color-stroke: #a40f0f;
-		--color-fill-hover: #ff310f;
-		--color-stroke-hover: #ff310f;
-		--color-bg: rgb(90, 5, 5);
-		--color-base: #880808;
-		--color-header: #00f;
-		--color-primary: #b91313;
-		--color-secondary: #3a3a3a;
-		--color-tertiary: #1c1c1c;
-		--color-border: #450f0f;
-		--color-shadow-bg: #515151;
-		--color-shadow-1: rgba(255, 255, 255, 0.1);
-		--color-shadow-2: rgba(0, 0, 0, 0.7);
-		--color-shadow-3: rgba(190, 25, 25, 0.8);
-		--color-shadow-4: rgba(0, 0, 0, 0.7);
-		--linear-from: rgb(113, 18, 18);
-		--linear-to: rgba(223, 8, 28, 0.84);
-		--box-shadow: rgb(21, 5, 5);
-	}
+html[data-theme='blood'] {
+	--color-text-base: #d6d3e2;
+	--color-text-secondary: #fff;
+	--color-text-muted: #ffffff;
+	--color-text-inverted: #ececec;
+	--color-text-muted-inverted: #616161;
+	--color-text-selected: #49fb35;
+	--color-text-neon: #e0d788;
+	--color-fill: #f0211a;
+	--color-stroke: #a40f0f;
+	--color-fill-hover: #ff310f;
+	--color-stroke-hover: #ff310f;
+	--color-bg: rgb(90, 5, 5);
+	--color-base: #880808;
+	--color-header: #00f;
+	--color-primary: #b91313;
+	--color-secondary: #3a3a3a;
+	--color-tertiary: #1c1c1c;
+	--color-border: #450f0f;
+	--color-shadow-bg: #515151;
+	--color-shadow-1: rgba(255, 255, 255, 0.1);
+	--color-shadow-2: rgba(0, 0, 0, 0.7);
+	--color-shadow-3: rgba(190, 25, 25, 0.8);
+	--color-shadow-4: rgba(0, 0, 0, 0.7);
+	--linear-from: rgb(113, 18, 18);
+	--linear-to: rgba(223, 8, 28, 0.84);
+	--box-shadow: rgb(21, 5, 5);
+}
 
-	@font-face {
-		font-family: 'Poppins';
-		font-style: normal;
-		font-weight: 300;
-		src: url('$lib/fonts/poppins/Poppins-Regular.ttf');
-		src: url('$lib/fonts/poppins/Poppins-Regular.ttf') format('truetype');
-		font-display: swap;
-	}
-
-	h1 {
-		@apply text-4xl;
-	}
-	h2 {
-		@apply text-3xl;
-	}
-	h3 {
-		@apply text-2xl;
-	}
-	h4 {
-		@apply text-xl;
-	}
-	h5 {
-		@apply text-lg;
-	}
-	h6 {
-		@apply text-base;
-	}
-	p {
-		@apply text-base;
-	}
-	h1,
-	h2,
-	h3,
-	h4,
-	h5,
-	h6 {
-		@apply font-semibold;
-	}
-	body {
-		@apply mx-auto;
-		@apply bg-skin-bg;
-	}
+@font-face {
+	font-family: 'Poppins';
+	font-style: normal;
+	font-weight: 300;
+	src: url('$lib/fonts/poppins/Poppins-Regular.ttf');
+	src: url('$lib/fonts/poppins/Poppins-Regular.ttf') format('truetype');
+	font-display: swap;
 }
 
 .root {
 	display: flex;
 	flex-direction: column;
+}
+
+@theme inline {
+	--color-skin-base: var(--color-text-base);
+	--color-skin-muted: var(--color-text-muted);
+	--color-skin-secondary: var(--color-text-secondary);
+	--color-skin-inverted: var(--color-text-inverted);
+	--color-skin-muted-inverted: var(--color-text-muted-inverted);
+	--color-skin-selected: var(--color-text-selected);
+	--color-skin-neon: var(--color-text-neon);
+	--color-skin-fill: var(--color-text-fill);
+	--fill-base: var(--color-fill);
+	--fill-hover: var(--color-fill-hover);
+	--stroke-base: var(--color-stroke);
+	--stroke-hover: var(--color-stroke-hover);
+	--color-col-bg: var(--color-bg);
+	--color-col-base: var(--color-base);
+	--color-col-primary: var(--color-primary);
+	--color-col-secondary: var(--color-secondary);
+	--color-col-tertiary: var(--color-tertiary);
+	--color-col-border: var(--color-border);
+	--color-col-shadow-bg: var(--color-shadow-bg);
+	--color-col-shadow-1: var(--color-shadow-1);
+	--color-col-shadow-2: var(--color-shadow-2);
+	--color-col-shadow-3: var(--color-shadow-3);
+	--color-col-shadow-4: var(--color-shadow-4);
+	--linear-from: var(--linear-from);
+	--linear-to: var(--linear-to);
+	--box-shadow: var(--box-shadow);
+}
+
+@utility clamp-xs {
+	font-size: clamp(calc(var(--text-xs) * 0.875), 1vw, var(--text-xs));
+}
+
+@utility clamp-sm {
+	font-size: clamp(calc(var(--text-sm) * 0.875), 1.5vw, var(--text-sm));
+}
+
+@utility clamp-base {
+	font-size: clamp(calc(var(--text-base) * 0.875), 2vw, var(--text-base));
+}
+
+@utility clamp-lg {
+	font-size: clamp(calc(var(--text-lg) * 0.875), 2.5vw, var(--text-lg));
+}
+
+@utility clamp-xl {
+	font-size: clamp(calc(var(--text-xl) * 0.875), 3vw, var(--text-xl));
+}
+
+@utility clamp-2xl {
+	font-size: clamp(calc(var(--text-2xl) * 0.875), 3.5vw, var(--text-2xl));
+}
+
+@utility clamp-3xl {
+	font-size: clamp(calc(var(--text-3xl) * 0.875), 4vw, var(--text-3xl));
+}
+
+@utility clamp-4xl {
+	font-size: clamp(calc(var(--text-4xl) * 0.875), 5vw, var(--text-4xl));
+}
+
+@utility clamp-5xl {
+	font-size: clamp(calc(var(--text-5xl) * 0.875), 5.5vw, var(--text-5xl));
+}
+
+@utility clamp-6xl {
+	font-size: clamp(calc(var(--text-6xl) * 0.875), 6vw, var(--text-6xl));
+}
+
+@utility clamp-7xl {
+	font-size: clamp(calc(var(--text-7xl) * 0.875), 6.5vw, var(--text-7xl));
+}
+
+@utility clamp-8xl {
+	font-size: clamp(calc(var(--text-8xl) * 0.875), 7vw, var(--text-8xl));
+}
+
+@utility clamp-9xl {
+	font-size: clamp(calc(var(--text-9xl) * 0.875), 7.5vw, var(--text-9xl));
 }
