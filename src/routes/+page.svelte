@@ -1,8 +1,3 @@
-<script>
-	import { version } from '$app/environment';
-</script>
-
-<span>The package.json version is: {version}</span>
 <div class="wrapper">
 	<h1 class="font-poppins text-skin-base clamp-4xl">Welcome to SvelteKit</h1>
 	<p class="text-skin-muted clamp-3xl">
