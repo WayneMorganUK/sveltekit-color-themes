@@ -2,13 +2,14 @@ import { browser } from '$app/environment';
 import { theme } from '$lib/runes/localStorage.svelte.js';
 
 export const load = async ({ data }) => {
-    theme.value = data.theme as ThemeType
+    // theme.value = data.theme as ThemeType
     if (browser) {
         const dataTheme = document.documentElement.getAttribute('data-theme') || ``
-        console.log('dataTheme, layout.ts', dataTheme)
+
         if (dataTheme === 'light' || dataTheme === 'dark' || dataTheme === 'blood') {
             theme.value = dataTheme
         }
+
         return {
             theme: dataTheme
         }

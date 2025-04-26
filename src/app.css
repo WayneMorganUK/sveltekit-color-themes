@@ -181,3 +181,17 @@ html[data-theme='blood'] {
 @utility clamp-9xl {
 	font-size: clamp(calc(var(--text-9xl) * 0.875), 7.5vw, var(--text-9xl));
 }
+
+@layer components {
+	html[data-theme='light'] svg[data-theme-icon='light'],
+	html[data-theme='dark'] svg[data-theme-icon='dark'],
+	html[data-theme='blood'] svg[data-theme-icon='blood'] {
+		@apply block; /* Show the matching SVG */
+	}
+
+	html[data-theme='light'] svg[data-theme-icon]:not([data-theme-icon='light']),
+	html[data-theme='dark'] svg[data-theme-icon]:not([data-theme-icon='dark']),
+	html[data-theme='blood'] svg[data-theme-icon]:not([data-theme-icon='blood']) {
+		@apply hidden; /* Hide the non-matching SVGs */
+	}
+}

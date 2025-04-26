@@ -3,14 +3,10 @@
 	import Navbar from '$lib/Header/Navbar.svelte';
 	import { theme } from '$lib/runes/localStorage.svelte';
 	import { onMount } from 'svelte';
+	import { page } from '$app/state';
 
-	$inspect(theme.value);
-	interface Props {
-		children?: import('svelte').Snippet;
-	}
-
-	let { children }: Props = $props();
-	$inspect(theme.value);
+	let { children } = $props();
+	theme.value = page.data.theme;
 
 	onMount(() => {
 		if (!('theme' in localStorage)) {
@@ -25,23 +21,18 @@
 
 <svelte:head>
 	<script lang="ts">
-		document.documentElement.setAttribute('data-themer', localStorage.getItem('theme'));
-		if (!('theme' in localStorage)) {
+		// document.documentElement.setAttribute('data-theme', localStorage.getItem('theme'));
+		let currentMode = localStorage.getItem('theme');
+		if (!currentMode) {
 			if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-				document.documentElement.setAttribute('data-theme', 'dark');
-				localStorage.setItem('theme', 'dark');
-				document.cookie = `theme=dark;path=/;SameSite=lax;maxAge: ${60 * 60 * 24 * 365}`;
+				currentMode = 'dark';
 			} else {
-				document.documentElement.setAttribute('data-theme', 'light');
-				document.cookie = `theme=light;path=/;SameSite=lax;maxAge: ${60 * 60 * 24 * 365}`;
+				currentMode = 'light';
 			}
-		} else {
-			if (localStorage.getItem('theme')) {
-				let currentMode = localStorage.getItem('theme');
-				document.documentElement.setAttribute('data-theme', currentMode);
-				document.cookie = `theme=${currentMode};path=/;SameSite=lax;maxAge: ${60 * 60 * 24 * 365}`;
-			}
+			localStorage.setItem('theme', currentMode);
 		}
+		document.documentElement.setAttribute('data-theme', currentMode);
+		document.cookie = `theme=${currentMode}; httpOnly:false; path=/; Secure=true; SameSite=lax; Max-Age=${60 * 60 * 24 * 365}`;
 	</script>
 	<title>Sveltekit &amp; Tailwind Dark Mode</title>
 </svelte:head>

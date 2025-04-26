@@ -1,4 +1,4 @@
-<svg viewBox="0 0 24 24">
+<svg data-theme-icon="blood" viewBox="0 0 24 24">
 	<g transform="translate(0 -1028.4)">
 		<g>
 			<path

@@ -10,6 +10,7 @@ export class LocalStorage {
         if (!browser) {
             return;
         }
+        this.#value = window.localStorage.getItem(this.#key) ?? defaultValue;
     }
 
     get value(): string {
@@ -23,12 +24,12 @@ export class LocalStorage {
             return;
         }
         window.localStorage.setItem(this.#key, this.#value);
-        document.cookie = `${this.#key}=${this.#value};path=/;SameSite=lax;max-age=${60 * 60 * 24 * 365}`;
+        document.cookie = `${this.#key}=${this.#value};httpOnly:false; path=/; Secure=true; SameSite=lax; Max-Age=${60 * 60 * 24 * 365}`;
         if (this.#key === 'theme') {
             document.documentElement.setAttribute('data-theme', this.#value);
         }
     }
 }
 
-export const theme = new LocalStorage('theme', 'blood');
+export const theme = new LocalStorage('theme', 'unset');
 
