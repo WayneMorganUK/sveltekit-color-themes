@@ -3,6 +3,8 @@ node_modules
 # Output
 .output
 .vercel
+.wrangler
+.netlify
 /.svelte-kit
 /build
 
@@ -20,4 +22,3 @@ Thumbs.db
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 
-.vercel
