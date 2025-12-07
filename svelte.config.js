@@ -43,7 +43,7 @@ const config = {
 		adapter: adapter({
 			config: 'wrangler.toml',
 			platformProxy: {
-				configPath: './cf_workers/wrangler.toml',
+				configPath: './cf_workers',
 				environment: 'production',
 				persist: true
 			},
