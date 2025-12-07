@@ -5,6 +5,11 @@
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build",
+		"build:vercel": "VERCEL=1 vite build",
+		"build:cf-pages": "CF_PAGES=1 vite build",
+		"build:cf-workers": "WORKERS_CI=1 vite build",
+		"deploy:pages": "npm run build:cf-pages && wrangler pages deploy --config wrangler.pages.toml",
+		"deploy:workers": "npm run build:cf-workers && wrangler deploy --config wrangler.workers.toml",
 		"preview": "vite preview",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
