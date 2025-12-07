@@ -23,7 +23,7 @@ if (process.env.VERCEL == '1') {
 	adapter = adapterCloudflare;
 	options = {
 		platformProxy: {
-			configPath: './CF_Workers/wrangler.toml'
+			configPath: 'wrangler.workers.toml'
 		}
 	};
 } else if (process.env.CF_PAGES == '1') {
