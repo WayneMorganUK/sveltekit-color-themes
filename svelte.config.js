@@ -34,12 +34,17 @@ if (process.env.VERCEL == '1') {
 		}
 	};
 }
+console.log(options);
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
 	preprocess: vitePreprocess(),
 	kit: {
-		adapter: adapter({ options })
+		adapter: adapter({
+			platformProxy: {
+				configPath: './CF_Workers/wrangler.toml'
+			}
+		})
 	}
 };
 
