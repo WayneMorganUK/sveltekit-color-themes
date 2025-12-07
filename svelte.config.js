@@ -7,9 +7,9 @@ import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 let selectedAdapter = adapterAuto;
 
 if (process.env.VERCEL == '1') {
-	selectedAdapter = adapterVercel();
+	selectedAdapter = adapterVercel;
 } else if (process.env.WORKERS_CI == '1') {
-	selectedAdapter = adapterCloudflare();
+	selectedAdapter = adapterCloudflare;
 }
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
