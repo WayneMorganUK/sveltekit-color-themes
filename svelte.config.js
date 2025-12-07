@@ -5,7 +5,6 @@ import adapterCloudflare from '@sveltejs/adapter-cloudflare';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 
 let selectedAdapter = adapterAuto;
-let options = {};
 
 console.log(
 	'Process env Cloudflare workers = ',
@@ -19,19 +18,15 @@ console.log('Process env Vercel = ', process.env.VERCEL ?? 'not set');
 
 if (process.env.VERCEL == '1') {
 	selectedAdapter = adapterVercel;
-} else if (process.env.WORKERS_CI == '1') {
+} else if (process.env.WORKERS_CI == '1' || process.env.CF_PAGES == '1') {
 	selectedAdapter = adapterCloudflare;
-	options = { configPath: './CF_Workers/wrangler.toml' };
-} else if (process.env.CF_PAGES == '1') {
-	selectedAdapter = adapterCloudflare;
-	options = { configPath: './CF_Pages/wrangler.toml' };
 }
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
 	preprocess: vitePreprocess(),
 	kit: {
-		adapter: selectedAdapter(options)
+		adapter: selectedAdapter({ configPath: '.wrangler/wrangler.toml' })
 	}
 };
 
