@@ -3,7 +3,7 @@ import adapterVercel from '@sveltejs/adapter-vercel';
 import adapterCloudflare from '@sveltejs/adapter-cloudflare';
 
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
-import * as toml from 'cf_workers/wrangler.toml';
+import * as toml from '../cf_workers/wrangler.toml';
 console.log('Wrangler toml = ', toml);
 
 let adapter = adapterAuto;
