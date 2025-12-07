@@ -21,30 +21,12 @@ if (process.env.VERCEL == '1') {
 	selectedAdapter = adapterVercel;
 } else if (process.env.WORKERS_CI == '1') {
 	selectedAdapter = adapterCloudflare;
-	options = {
-		// ... other adapter options
-
-		// --- Configuration for Local Development ---
-		platformProxy: {
-			// SvelteKit will use THIS file path when running 'npm run dev'
-			configPath: './CF_Workers/wrangler.toml'
-			// Enable Miniflare persistence for local data/storage
-		}
-	};
+	options = { configPath: './CF_Workers/wrangler.toml' };
 } else if (process.env.CF_PAGES == '1') {
 	selectedAdapter = adapterCloudflare;
-	options = {
-		// ... other adapter options
-
-		// --- Configuration for Local Development ---
-		platformProxy: {
-			// SvelteKit will use THIS file path when running 'npm run dev'
-			configPath: './CF_Pages/wrangler.dev.toml',
-			// Enable Miniflare persistence for local data/storage
-			persist: true
-		}
-	};
+	options = { configPath: './CF_Pages/wrangler.toml' };
 }
+
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
 	preprocess: vitePreprocess(),
