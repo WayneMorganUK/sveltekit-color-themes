@@ -40,11 +40,7 @@ console.log(options);
 const config = {
 	preprocess: vitePreprocess(),
 	kit: {
-		adapter: adapter({
-			platformProxy: {
-				configPath: 'wrangler_workers.toml'
-			}
-		})
+		adapter: adapter()
 	}
 };
 
