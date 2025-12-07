@@ -3,6 +3,8 @@ import adapterVercel from '@sveltejs/adapter-vercel';
 import adapterCloudflare from '@sveltejs/adapter-cloudflare';
 
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
+import * as toml from './cf_workers/wrangler.toml';
+console.log('Wrangler toml = ', toml);
 
 let adapter = adapterAuto;
 let options = {};
@@ -41,10 +43,17 @@ const config = {
 	preprocess: vitePreprocess(),
 	kit: {
 		adapter: adapter({
-			config: 'wrangler.workers.toml'
-			// platformProxy: {
-			// 	configPath: 'CF_Workers/wrangler.toml'
-			// }
+			config: 'wrangler.toml',
+			platformProxy: {
+				configPath: './cf_workers/wrangler.toml',
+				environment: 'production',
+				persist: true
+			},
+			fallback: 'plaintext',
+			routes: {
+				include: ['/*'],
+				exclude: ['<all>']
+			}
 		})
 	}
 };
