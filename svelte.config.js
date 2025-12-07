@@ -6,10 +6,15 @@ import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 
 let selectedAdapter = adapterAuto;
 
-console.log('Process env Cloudflare workers = ', process.env.CLOUDFLARE_WORKERS ?? 'not set');
-console.log('Process env Cloudflare pages = ', process.env.CF_PAGE ?? 'not set');
+console.log(
+	'Process env Cloudflare workers = ',
+	process.env.WORKERS_CI === '1' ? 'WORKERS_CI===`1`' : 'not set'
+);
+console.log(
+	'Process env Cloudflare pages = ',
+	process.env.CF_PAGES === '1' ? 'CF_PAGES===`1`' : 'not set'
+);
 console.log('Process env Vercel = ', process.env.VERCEL ?? 'not set');
-console.log('Process env ', process.env);
 
 if (process.env.VERCEL == '1') {
 	selectedAdapter = adapterVercel;
