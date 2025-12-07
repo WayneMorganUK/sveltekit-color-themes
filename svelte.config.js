@@ -26,7 +26,7 @@ if (process.env.VERCEL == '1') {
 const config = {
 	preprocess: vitePreprocess(),
 	kit: {
-		adapter: selectedAdapter({ configPath: '.wrangler/wrangler.toml' })
+		adapter: selectedAdapter({ configPath: './wrangler/wrangler.toml' })
 	}
 };
 
