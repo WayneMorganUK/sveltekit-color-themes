@@ -41,9 +41,9 @@ const config = {
 	preprocess: vitePreprocess(),
 	kit: {
 		adapter: adapter({
-			config: 'wrangler.workers.toml',
+			config: 'wrangler.toml',
 			platformProxy: {
-				configPath: undefined,
+				configPath: './cf_workers/wrangler.toml',
 				environment: 'production',
 				persist: true
 			},
