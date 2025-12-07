@@ -38,7 +38,7 @@
 </svelte:head>
 
 <main>
-	<div class="bg-col-base fixed top-0 -z-10 min-h-screen w-full"></div>
+	<div class="bg-col-base text-skin-base fixed top-0 -z-10 min-h-screen w-full"></div>
 	<Navbar />
 	<section class="mx-auto mt-12 max-w-7xl md:mt-[56px]">
 		{@render children?.()}
