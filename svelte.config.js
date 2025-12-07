@@ -39,7 +39,7 @@ if (process.env.VERCEL == '1') {
 const config = {
 	preprocess: vitePreprocess(),
 	kit: {
-		adapter: adapter(options)
+		adapter: adapter({ options })
 	}
 };
 
