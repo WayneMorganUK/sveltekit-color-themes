@@ -1,5 +1,5 @@
 
-name = "Color Themes SvelteKit"
+name = "svelteKit_color_themes"
 compatibility_date = "2025-12-07"
 
 main = ".svelte-kit/cloudflare/_worker.js"
