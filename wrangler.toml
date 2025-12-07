@@ -8,4 +8,4 @@ compatibility_flags = ["nodejs_compat"]
 # Bind your static output directory (e.g. the client folder SvelteKit emitted)
 [assets]
 binding = "ASSETS"
-directory = ".svelte-kit/cloudflare"
+directory = ".svelte-kit"
