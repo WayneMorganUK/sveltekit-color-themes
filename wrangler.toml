@@ -3,11 +3,7 @@ name = "sveltekit-color-themes"
 compatibility_date = "2025-12-07"
 
 main = ".svelte-kit/cloudflare/_worker.js"
-
-# required for CF Pages
 pages_build_output_dir = ".svelte-kit/cloudflare"
-
-
 compatibility_flags = ["nodejs_compat"]
 
 # Bind your static output directory (e.g. the client folder SvelteKit emitted)
