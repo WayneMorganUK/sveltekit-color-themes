@@ -1,5 +1,4 @@
 import { env } from '$env/dynamic/private';
-console.log('Private env TEST_VAR =', env);
 export const load = async ({ locals }) => {
     // Simulate a long process (e.g., fetching data or performing computations)
     const longProcess = async () => {
@@ -18,6 +17,6 @@ export const load = async ({ locals }) => {
     return {
         theme: locals.theme,
         longProcessResult: result,
-        privateTestVar: env
+        privateTestVar: env.TEST_VAR
     };
 };
