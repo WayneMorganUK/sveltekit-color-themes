@@ -32,7 +32,7 @@ console.log(options);
 const config = {
 	preprocess: vitePreprocess(),
 	kit: {
-		adapter: adapter(options)
+		adapter: adapter({ ...options })
 	}
 };
 
