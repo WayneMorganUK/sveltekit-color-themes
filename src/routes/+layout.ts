@@ -15,7 +15,8 @@ export const load = async ({ data }) => {
         }
     }
     return {
-        theme: data.theme
+        theme: data.theme,
+        privateTestVar: data.privateTestVar
     };
 }
 

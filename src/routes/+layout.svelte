@@ -5,7 +5,7 @@
 	import { onMount } from 'svelte';
 	import { page } from '$app/state';
 
-	let { children } = $props();
+	let { children, data } = $props();
 	theme.value = page.data.theme;
 
 	onMount(() => {
@@ -39,8 +39,9 @@
 
 <main>
 	<div class="bg-col-base text-skin-base fixed top-0 -z-10 min-h-screen w-full"></div>
+	<p>{data.privateTestVar}</p>
 	<Navbar />
-	<section class="mx-auto mt-12 max-w-7xl md:mt-[56px]">
+	<section class="mx-auto mt-12 max-w-7xl md:mt-14">
 		{@render children?.()}
 	</section>
 </main>

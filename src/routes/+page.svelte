@@ -1,3 +1,7 @@
+<script lang="ts">
+	// import { staticEnv} from '$env/static/public';
+</script>
+
 <div class="wrapper">
 	<h1 class="font-poppins text-skin-base clamp-4xl">Welcome to SvelteKit</h1>
 	<p class="text-skin-muted clamp-3xl">
