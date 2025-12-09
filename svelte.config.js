@@ -21,7 +21,7 @@ if (process.env.VERCEL == '1') {
 	adapter = adapterVercel;
 } else if (process.env.WORKERS_CI == '1') {
 	adapter = adapterCloudflare;
-	options = { config: 'wrangler.jsonc' };
+	options = { config: 'config/wrangler.jsonc' };
 } else if (process.env.CF_PAGES == '1') {
 	adapter = adapterCloudflare;
 	options = { config: 'wrangler.toml' };
