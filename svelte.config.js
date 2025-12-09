@@ -33,9 +33,9 @@ const config = {
 	preprocess: vitePreprocess(),
 	kit: {
 		adapter: adapter({
-			config: './wrangler.jsonc',
+			config: './wranglerx.jsonc',
 			platformProxy: {
-				configPath: './wrangler.jsonc'
+				configPath: './wranglerx.jsonc'
 			}
 		})
 	}
