@@ -21,10 +21,10 @@ if (process.env.VERCEL == '1') {
 	adapter = adapterVercel;
 } else if (process.env.WORKERS_CI == '1') {
 	adapter = adapterCloudflare;
-	options = { config: 'cf_workers/wrangler.jsonc' };
+	// options = { config: 'cf_workers/wrangler.jsonc' };
 } else if (process.env.CF_PAGES == '1') {
 	adapter = adapterCloudflare;
-	options = { config: 'cf_pages/wrangler.toml' };
+	// options = { config: 'cf_pages/wrangler.toml' };
 }
 console.log(options);
 
@@ -32,7 +32,9 @@ console.log(options);
 const config = {
 	preprocess: vitePreprocess(),
 	kit: {
-		adapter: adapter({ ...options })
+		adapter: adapter({
+			config: 'config/wrangler.jsonc'
+		})
 	}
 };
 
