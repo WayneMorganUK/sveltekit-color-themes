@@ -16,7 +16,7 @@ if (process.env.VERCEL == '1') {
 	// **** NOTE: add  pnpx wrangler deploy --config ./cf_workers/ to build command in Cloudflare  *****
 } else if (process.env.CF_PAGES == '1') {
 	adapter = adapterCloudflare;
-	options = { config: 'cf_pages/wrangler.toml' };
+	// *** NOTE: Cloudflare pages has to use the root directory
 }
 // console.log(options);
 
