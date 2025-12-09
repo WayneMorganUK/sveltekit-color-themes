@@ -33,7 +33,7 @@ const config = {
 	preprocess: vitePreprocess(),
 	kit: {
 		adapter: adapter({
-			config: 'wrangler.jsonc'
+			config: 'config/xwrangler.jsonc'
 		})
 	}
 };
