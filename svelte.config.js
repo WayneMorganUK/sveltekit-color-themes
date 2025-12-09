@@ -7,24 +7,16 @@ import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 let adapter = adapterCloudflare;
 let options = {};
 
-// console.log(
-// 	'Process env Cloudflare workers = ',
-// 	process.env.WORKERS_CI === '1' ? 'WORKERS_CI===`1`' : 'not set'
-// );
-// console.log(
-// 	'Process env Cloudflare pages = ',
-// 	process.env.CF_PAGES === '1' ? 'CF_PAGES===`1`' : 'not set'
-// );
-// console.log('Process env Vercel = ', process.env.VERCEL ?? 'not set');
-
 if (process.env.VERCEL == '1') {
 	adapter = adapterVercel;
 } else if (process.env.WORKERS_CI == '1') {
 	adapter = adapterCloudflare;
-	options = { config: 'config/wrangler.jsonc' };
+	options = { config: 'cf_workers/wrangler.jsonc' };
+
+	// **** NOTE: add  pnpx wrangler deploy --config ./cf_workers/ to build command in Cloudflare  *****
 } else if (process.env.CF_PAGES == '1') {
 	adapter = adapterCloudflare;
-	options = { config: 'wrangler.toml' };
+	options = { config: 'cf_pages/wrangler.toml' };
 }
 // console.log(options);
 
