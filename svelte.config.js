@@ -9,7 +9,7 @@ import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 let adapter = adapterAuto;
 let options = {};
 
-console.log(process.env);
+// console.log(process.env);
 
 // ** Vercel Adapter and Options **
 if (process.env.VERCEL === '1') {
@@ -68,7 +68,7 @@ if (process.env.VERCEL === '1') {
 	console.log('Using Auto Adapter');
 }
 
-console.log(options);
+console.log('Adapter Options:', options);
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
