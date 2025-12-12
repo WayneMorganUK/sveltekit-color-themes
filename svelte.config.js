@@ -14,8 +14,8 @@ let options = {};
 if (process.env.VERCEL === '1') {
 	adapter = adapterVercel;
 	options = {
-		// runtime: 'edge',
-		// split: true,
+		runtime: 'edge',
+		split: true
 		// memory: 128,
 		// isr: {
 		// 	expiration: 60,
@@ -45,7 +45,7 @@ if (process.env.VERCEL === '1') {
 	// ** Cloudflare Pages Adapter and Options **
 	adapter = adapterCloudflare;
 	// *** NOTE: Cloudflare pages has to use the root directory
-} else if (process.env.NETLIFY === 'TRUE') {
+} else if (process.env.NETLIFY === TRUE) {
 	// ** Netlify Adapter and Options **
 	adapter = adapterNetlify;
 	options = {
