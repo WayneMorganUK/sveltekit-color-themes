@@ -48,7 +48,7 @@ if (process.env.VERCEL === '1') {
 	// ** Cloudflare Pages Adapter and Options **
 	adapter = adapterCloudflare;
 	// *** NOTE: Cloudflare pages has to use the root directory
-} else if (process.env.NETLIFY == 'TRUE') {
+} else if (process.env.NETLIFY == 'true') {
 	console.log('Using Netlify Adapter');
 
 	// ** Netlify Adapter and Options **
