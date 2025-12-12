@@ -10,7 +10,7 @@ This project is a SvelteKit starter that demonstrates how to implement a robust 
 -   **Easy to Use:** The theme can be changed with a simple function call.
 -   **Themable with CSS Variables:** Themes are defined using CSS custom properties (variables), making it easy to create new themes and customize existing ones.
 -   **Includes 3 Themes:** Comes with `light`, `dark`, and `blood` themes out of the box.
--   **Uses CSS Logic For Icons:** Avoids flicker of Icons changing by using CSS instead of {#if blocks} for rendering Icons
+-   **CSS-based Icon Switching:** Avoids icon flickering by using CSS to show/hide icons based on the current theme, instead of conditional rendering in Svelte.
 
 ## How it Works
 
@@ -34,7 +34,7 @@ The `src/lib/Header/ToggleDarkMode.svelte` component provides an example of how 
 1.  Clone the repository:
 
     ```bash
-    git clone https://github.com/your-username/sveltekit-color-themes.git
+    git clone https://github.com/WayneMorganUK/sveltekit-color-themes.git
     ```
 
 2.  Install the dependencies:
@@ -84,42 +84,41 @@ To add a new theme, you need to do the following:
     }
     ```
 
+## Deployment (Adapters)
+
+This project is configured to be deployed to various platforms using SvelteKit adapters. The code includes logic to detect the deployment platform and use the correct adapter.
+
+The following platforms are supported out of the box:
+
+-   Vercel
+-   Netlify
+-   Cloudflare Pages
+-   Cloudflare Workers
+
+The deployment platform is detected using the following environment variables:
+
+-   `process.env.VERCEL === '1'`
+-   `process.env.NETLIFY === 'TRUE'`
+-   `process.env.CF_PAGES === '1'`
+-   `process.env.CF_WORKERS_CI === '1'`
+
+### Platform-Specific Configuration
+
+-   **Netlify:** Build and deploy commands are configured in `netlify.toml`.
+-   **Cloudflare Workers:** Configuration is in `wrangler.jsonc`. If you are using `pnpm`, you may need to change the deploy command in your Cloudflare dashboard from `npx wrangler deploy` to `pnpx wrangler deploy --config ./cf_workers/wrangler.jsonc`.
+-   **Cloudflare Pages:** Uses `wrangler.toml` to avoid conflicts with Cloudflare Workers configuration.
+
+### Further Reading
+
+-   [SvelteKit Adapters Documentation](https://svelte.dev/docs/kit/adapters)
+-   [Vercel Adapter](https://svelte.dev/docs/kit/adapter-vercel)
+-   [Netlify Adapter](https://svelte.dev/docs/kit/adapter-netlify)
+-   [Cloudflare Adapter](https://svelte.dev/docs/kit/adapter-cloudflare)
+
+
 ## Technologies Used
 
 -   [SvelteKit](https://kit.svelte.dev/)
 -   [Svelte 5](https://svelte.dev/blog/runes) (using a rune-like pattern)
 -   [Tailwind CSS](https://tailwindcss.com/)
 -   [TypeScript](https://www.typescriptlang.org/)
-# A Sveltekit App using Color Themes
-
-## Uses logic to deploy to Vercel, Netlify, Cloudflare Pages and Workers
-
-If using pnpm and deploying to Cloudflare Workers, in the build settings change default deploy command
-from `npx wrangler deploy` to `pnpx wrangler deploy`
-
-for Netlify use `netlify.toml` for build and deploy commands
-
-for Cloudflare Workers use `wrangler.jsonc`
-for Cloudflare Pages use `wrangler.toml` to avoid conflict
-
-## Build configuration
-Build command `pnpm run build`
-Deploy command `pnpx wrangler deploy --config ./cf_workers/`
-
-**** NOTE: add  pnpx wrangler deploy --config ./cf_workers/ to build command in Cloudflare (or the relevant path of your wrangler.jsonc file)  *****
-
-
-## Checks to see which platform you are deploying to using the following conditions:
--   process.env.VERCEL === '1'
--   process.env.NETLIFY === 'TRUE'
--   process.env.CF_PAGES ==='1'
--   process.env.CF_WORKERS_CI === '1'
-
-
-
-### For more info refer to the relevant documents:
--   [Adapters](https://svelte.dev/docs/kit/adapters)
--   [Vercel](https://svelte.dev/docs/kit/adapter-vercel)
--   [Cloudflare](https://svelte.dev/docs/kit/adapter-cloudflare)
--   [Netlify](https://svelte.dev/docs/kit/adapter-netlify)
--   [Vercel](https://svelte.dev/docs/kit/adapter-vercel)
