@@ -8,7 +8,7 @@ import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 let adapter = adapterAuto;
 let options = {};
 
-// console.log(process.env);
+console.log(process.env);
 
 // ** Vercel Adapter and Options **
 if (process.env.VERCEL === '1') {
@@ -48,7 +48,7 @@ if (process.env.VERCEL === '1') {
 	// ** Cloudflare Pages Adapter and Options **
 	adapter = adapterCloudflare;
 	// *** NOTE: Cloudflare pages has to use the root directory
-} else if (process.env.NETLIFY === 'TRUE') {
+} else if (process.env.NETLIFY == 'TRUE') {
 	console.log('Using Netlify Adapter');
 
 	// ** Netlify Adapter and Options **
