@@ -7,7 +7,8 @@ from `npx wrangler deploy` to `pnpx wrangler deploy`
 
 for Netlify use `netlify.toml` for build and deploy commands
 
-for Cloudflare use `wrangler.jsonc`
+for Cloudflare Workers use `wrangler.jsonc`
+for Cloudflare Pages use `wrangler.toml` to avoid conflict
 
 ## Build configuration
 Build command `pnpm run build`
