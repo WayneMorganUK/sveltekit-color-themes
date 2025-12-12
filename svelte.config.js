@@ -12,6 +12,7 @@ let options = {};
 
 // ** Vercel Adapter and Options **
 if (process.env.VERCEL === '1') {
+	console.log('Using Vercel Adapter');
 	adapter = adapterVercel;
 	options = {
 		runtime: 'edge',
@@ -25,6 +26,7 @@ if (process.env.VERCEL === '1') {
 	};
 } else if (process.env.WORKERS_CI === '1') {
 	// ** Cloudflare Workers Adapter and Options **
+	console.log('Using Cloudflare Workers Adapter');
 	adapter = adapterCloudflare;
 	options = {
 		config: 'cf_workers/wrangler.jsonc'
@@ -42,10 +44,13 @@ if (process.env.VERCEL === '1') {
 
 	// **** NOTE: add  pnpx wrangler deploy --config ./cf_workers/ to build command in Cloudflare  *****
 } else if (process.env.CF_PAGES === '1') {
+	console.log('Using Cloudflare Pages Adapter');
 	// ** Cloudflare Pages Adapter and Options **
 	adapter = adapterCloudflare;
 	// *** NOTE: Cloudflare pages has to use the root directory
 } else if (process.env.NETLIFY === 'TRUE') {
+	console.log('Using Netlify Adapter');
+
 	// ** Netlify Adapter and Options **
 	adapter = adapterNetlify;
 	options = {
@@ -58,6 +63,8 @@ if (process.env.VERCEL === '1') {
 		// if `edge` is true, this option cannot be used
 		split: false
 	};
+} else {
+	console.log('Using Auto Adapter');
 }
 
 console.log(options);
