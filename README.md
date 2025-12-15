@@ -105,8 +105,8 @@ The deployment platform is detected using the following environment variables:
 ### Platform-Specific Configuration
 
 -   **Netlify:** Build and deploy commands are configured in `netlify.toml`.
--   **Cloudflare Workers:** Configuration is in `wrangler.jsonc`. If you are using `pnpm`, you may need to change the deploy command in your Cloudflare dashboard from `npx wrangler deploy` to `pnpx wrangler deploy --config ./cf_workers/wrangler.jsonc`.
--   **Cloudflare Pages:** Uses `wrangler.toml` to avoid conflicts with Cloudflare Workers configuration.
+-   **Cloudflare Workers:** Configuration is in `wrangler_workers.jsonc`. If you are using `pnpm`, you may need to change the deploy command in your Cloudflare dashboard from `npx wrangler deploy` to `pnpx wrangler deploy --config ./cf_workers/wrangler_workers.jsonc` to include filename and path.
+-   **Cloudflare Pages:** Uses `wrangler.toml` to avoid conflicts with Cloudflare Workers configuration. This path and filename cannot be configured 
 
 ### Further Reading
 
