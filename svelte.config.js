@@ -16,7 +16,7 @@ if (process.env.VERCEL === '1') {
 	console.log('Using Vercel Adapter');
 	adapter = adapterVercel;
 	options = {
-		runtime: 'edge',
+		// runtime: 'edge',  //NO LONGER SUPPORTED AS AN OPTION
 		split: true
 		// memory: 128,
 		// isr: {
