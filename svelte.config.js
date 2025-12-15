@@ -30,7 +30,7 @@ if (process.env.VERCEL === '1') {
 	console.log('Using Cloudflare Workers Adapter');
 	adapter = adapterCloudflare;
 	options = {
-		config: 'cf_workers/wrangler.jsonc'
+		config: 'cf_workers/wrangler_workers.jsonc'
 		// platformProxy: {
 		// 	configPath: undefined,
 		// 	environment: undefined,
