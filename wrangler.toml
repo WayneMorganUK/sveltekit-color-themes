@@ -6,3 +6,14 @@ compatibility_date = "2025-04-19"
 [env.production.vars]
 NODE_VERSION = "22.14.0"
 PNPM_VERSION = "10.24.0"
+
+
+[[durable_objects.bindings]]
+name = "VEET"
+class_name = "Veet"
+
+# Durable Object migrations.
+# Docs: https://developers.cloudflare.com/workers/wrangler/configuration/#migrations
+[[migrations]]
+tag = "v1"
+new_classes = ["Veet"]
